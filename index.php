@@ -8,8 +8,8 @@
     </style>
 </head>
 <body>
-    <div class="top_head" style="position:fixed; width:1580px; height: 60px; top:0px; left:0px; border: solid 1px black; background: #117700; font-size: 14px" align="center">
-        <div style="position:fixed; top:0px; left:30px; text-align:center;">
+    <div class="top_head" style="position:absolute; width:1580px; height: 60px; top:0px; left:0px; border: solid 1px black; background: #117700; font-size: 14px" align="center">
+        <div style="position:absolute; top:0px; left:30px; text-align:center;">
             <font color="red" face="Zapf Chancery, cursive"><h2>Files Downloader</h2></font>
         </div>
     </div>
@@ -20,11 +20,13 @@
     </center>
     <br><br><br><br>
     <?php
-    echo "<center>";
     if ($handle = opendir('W:/domains/Files/downloads/')) {
+        echo "<center>";
         echo '<font color="#117700" face="Zapf Chancery, cursive"><h2>Файлы:</h2></font><br>';
+        echo "</center>";
         while (false !== ($entry = readdir($handle))) {
             if($entry != '.' && $entry != '..'){
+                echo "<center><hr>";
                 echo '<div style="position: absolute; margin-top: 20px; " align="left">';
                 echo '<form action="download.php" method="post">
                         <input type="hidden" name="file_name" value="'.$entry.'">
@@ -39,12 +41,14 @@
                 echo '</div>';
                 echo '<div style="position: absolute; margin-left: 160px; " align="left">';
                 echo '<h3> '.$entry .'</h3>';
-                echo '</div><br><br>';
+                echo '</div><br><br><br>';
+                echo "</center>";
+                echo '<img src="/downloads/'. $entry .'" width="300" height="300">';
+                echo '<br>';
             }
         }
         closedir($handle);
     }
-    echo "</center>";
     if($_POST['delete']=="Удалить"){
         $file_name = 'W:/domains/Files/downloads/'.$_POST["file_name"];
         unlink($file_name);
