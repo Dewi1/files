@@ -18,7 +18,6 @@ if($_FILES["filename"]["size"] > 1024*10*1024)
 
 if($_FILES["filename"]["type"] == "image/jpeg"){
     $check = 1;
-    echo $_FILES["filename"]["type"];
 }elseif($_FILES["filename"]["type"] == "image/jpg"){
     $check = 1;
 }elseif($_FILES["filename"]["type"] == "image/png"){

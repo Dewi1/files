@@ -39,11 +39,29 @@
                         <input type="submit" name="delete" value="Удалить">
                      </form>';
                 echo '</div>';
-                echo '<div style="position: absolute; margin-left: 160px; " align="left">';
-                echo '<h3> '.$entry .'</h3>';
+                echo '<div style="position: absolute; margin-left: 160px; margin-top: 20px; " align="left">';
+                echo '<form action="preview.php" method="post">
+                        <input type="hidden" name="file_name" value="'.$entry.'">
+                        <input type="submit" name="preview" value="Сгенерировать превью">
+                     </form>';
+                echo '</div>';
+                echo '<div style="position: absolute; margin-left: 330px; " align="left">';
+                echo '<h3> Имя: '.$entry .'</h3>';
                 echo '</div><br><br><br>';
                 echo "</center>";
-                echo '<img src="/downloads/'. $entry .'" width="300" height="300">';
+                echo '<img src="/downloads/'. $entry .'">';
+                echo '<br><br>Превью: ';
+                $dir = 'W:/domains/Files/previews/';
+                for($i=1;$i<8;$i++){
+                    $fullFileName = $dir."preview_".$i."_".$entry;
+                    if (file_exists($fullFileName)) {
+                        echo '<img src="/previews/preview_'.$i.'_'.$entry.'"';
+                        echo ' ';
+                        echo ' <br> ';
+                    }else{
+                        break;
+                    }
+                }
                 echo '<br>';
             }
         }
