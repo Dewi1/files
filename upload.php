@@ -17,7 +17,8 @@
         <input type="file" name="filename"><br><br>
         <input type="submit" value="Загрузить"><br>
     </form>
-    <center><font color="red" face="Zapf Chancery, cursive"><h4>Размер файла не должен превышать 40 мб.</h4></font>
+    <center><font color="red" face="Zapf Chancery, cursive"><h4>Размер изображений не должен превышать 10 мб. </h4></font>
+    <center><font color="red" face="Zapf Chancery, cursive"><h4>Допустимые форматы: png, jpeg, jpg. </h4></font>
 </center>
 </body>
 </html>
